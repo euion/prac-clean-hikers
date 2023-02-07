@@ -10,7 +10,6 @@
           </p>
         </div>
       </div>
-
       <search-container />
     </div>
   </div>
