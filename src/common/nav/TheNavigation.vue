@@ -12,13 +12,17 @@
         <div class="w-2/5 items-center">
           <ul class="flex align-center justify-between items-center">
             <li class="">
-              <router-link to="/">홈</router-link>
+              <router-link to="/" class="font-sans font-bold">홈</router-link>
             </li>
             <li>
-              <router-link to="/search-mountain"><div>산찾기</div></router-link>
+              <router-link to="/search-mountain" class="font-sans font-bold"
+                ><div>산찾기</div></router-link
+              >
             </li>
             <li>
-              <router-link to="/community">커뮤니티</router-link>
+              <router-link to="/community" class="font-sans font-bold"
+                >커뮤니티</router-link
+              >
             </li>
             <li>
               <router-link to="/community"

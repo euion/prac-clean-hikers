@@ -5,7 +5,7 @@ import router from './router';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
-import './styles/index.css';
+import './index.css';
 
 const app = createApp(App);
 app.config.productionTip = false;
