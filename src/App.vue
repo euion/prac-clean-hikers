@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import TheNavigation from '@/components/nav/TheNavigation.vue';
+import TheNavigation from '@/common/nav/TheNavigation.vue';
 import Main from '@/pages/Main.vue';
 
 export default {
@@ -21,5 +21,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

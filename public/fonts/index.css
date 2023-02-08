@@ -1,0 +1,8 @@
+@layer base {
+  @font-face {
+    font-family: 'Gugi-Regular.ttf', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: url('@/assets/font/Gugi-Regular.ttf') format('ttf');
+  }
+}
