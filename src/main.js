@@ -11,5 +11,6 @@ const app = createApp(App);
 app.config.productionTip = false;
 
 app.use(router);
+app.use(Antd);
 
-app.use(Antd).mount('#app');
+app.mount('#app');

@@ -24,10 +24,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-@font-face {
-  font-family: 'Gugi-Regular';
-  src: url('/assets/font/Gugi-Regular.ttf') format('truetype');
-}
-</style>

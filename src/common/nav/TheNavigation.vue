@@ -9,7 +9,7 @@
             </router-link>
           </li>
         </ul>
-        <div class="w-2/5 items-center">
+        <div class="w-2/5 max-w-xl items-center">
           <ul class="flex align-center justify-between items-center">
             <li class="">
               <router-link to="/" class="font-sans font-bold">홈</router-link>
