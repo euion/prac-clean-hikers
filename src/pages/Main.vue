@@ -27,11 +27,5 @@ export default {
     SearchContainer,
     MainFooter,
   },
-
-  methods: {
-    onValueSelect(value) {
-      this.selectedRegion = value;
-    },
-  },
 };
 </script>

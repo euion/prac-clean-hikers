@@ -4,13 +4,14 @@
       @submit.prevent="submitForm"
       class="bg-white rounded-3xl max-w-4xl flex justify-between p-3"
     >
-      <ul>
-        <div class="w-25 pr-2">
+      <ul class="w-25 pr-3">
+        <div>
           <select id="region" name="region" v-model="regionSelected">
-            <option value="regionDefault" selected disabled>지역</option>
+            <option value="regionDefault" selected disabled>지 역</option>
             <option
               v-for="region in regions"
-              :value="regions.value"
+              :value="region.value"
+              @change="mainParams(region.value)"
               :key="region.id"
             >
               <p>{{ region.text }}</p>
@@ -19,8 +20,8 @@
         </div>
         <p class="text-xs text-gray-400">Your destination</p>
       </ul>
-      <ul>
-        <div class="w-25 pr-2">
+      <ul class="w-25 pr-2">
+        <div>
           <datepicker
             v-model="picked"
             :locale="locale"
@@ -31,13 +32,13 @@
         </div>
         <p class="text-xs text-gray-400">When does it start?</p>
       </ul>
-      <ul>
-        <div class="w-25 pr-2">
+      <ul class="w-25 pr-2">
+        <div>
           <select id="personnel" name="personnel" v-model="personnelSelected">
             <option value="personnelDefault" selected disabled>인 원</option>
             <option
               v-for="personnel in personnels"
-              :value="personnels.value"
+              @change="mainParams(personnel.value)"
               :key="personnel.id"
             >
               <p>{{ personnel.text }}명</p>
@@ -113,20 +114,19 @@ export default {
     };
   },
   methods: {
-    activate(option) {
-      this.activateOption = option;
-      this.$emit('update:modelValue', option);
+    mainParams(region, personnel) {
+      this.regionSelected = region;
+      this.personnelSelected = personnel;
     },
     clickParams() {
       this.$router.push({
         name: 'mountain-detail',
         query: {
-          region: this.region.text,
+          region: this.regionSelected,
           date: this.picked,
-          personnel: this.personnel.text,
+          personnel: this.personnelSelected,
         },
       });
-      console.log(this.personnels);
     },
   },
 };

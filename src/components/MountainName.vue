@@ -19,20 +19,7 @@ export default {
   data() {
     return {
       leaveDate: dayjs(this.$route.query.date).format('YY년 MM월 DD일'),
-      year: '',
-      month: '',
-      day: '',
     };
-  },
-  mounted() {
-    this.dateSplit();
-  },
-  methods: {
-    dateSplit: function () {
-      this.year = dayjs(this.leaveDate).year();
-      this.month = dayjs(this.leaveDate).month();
-      this.day = dayjs(this.leaveDate).day();
-    },
   },
 };
 </script>
