@@ -18,20 +18,21 @@ export default({
   created(){
     console.log(this.$route.query.personnel)
   },
-  props: {
-    date: {
-      type: Date,
-    default:""
-  },
-    region:{
-      type:String,
-    default:"미설정",
-    },
-    personnel:{
-      type:Number,
-      default:1
-    }
-  },
+  props: ['date', 'region', 'personnel'],
+  // props: {
+  //   date: {
+  //     type: Date,
+  //   default:""
+  // },
+  //   region:{
+  //     type:String,
+  //   default:"미설정",
+  //   },
+  //   personnel:{
+  //     type:Number,
+  //     default:1
+  //   }
+  // },
   data(){
     return{
       leaveDate: dayjs().format("YY년 MM월 DD일"),

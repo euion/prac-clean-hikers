@@ -5,7 +5,7 @@ import router from './router';
 import Antd from 'ant-design-vue';
 
 import Datepicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import '@vuepic/vue-datepicker/dist/main.css';
 
 import './index.css';
 

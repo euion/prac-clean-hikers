@@ -1,16 +1,21 @@
 <template>
-  <div>산찾기 페이지 입니다.
-   <p> {{ $route.query.region }}</p>
-  <mountain-name :region="$route.query.region" :date="$route.query.date" :personnel="$route.query.personnel"/>
-</div>
+  <div>
+    산찾기 페이지 입니다.
+    <p>{{ $route.query.region }}</p>
+    <mountain-name
+      :region="$route.query.region"
+      :date="$route.query.date"
+      :personnel="$route.query.personnel"
+    />
+  </div>
 </template>
 
 <script>
 import MountainName from '@/components/MountainName.vue';
 
-export default{
+export default {
   name: 'mountain-detail',
-  components:{MountainName},
+  components: { MountainName },
 
   // props:{
   //   region:{
@@ -29,6 +34,5 @@ export default{
   // mounted(){
   //   this.region
   // }
-}
-
+};
 </script>
