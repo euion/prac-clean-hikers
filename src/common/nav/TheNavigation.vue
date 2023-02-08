@@ -1,16 +1,21 @@
 <template>
   <header>
     <nav>
-      <div class="flex justify-between pl-5 pr-5 h-16 items-center">
+      <div class="flex justify-between px-16 h-16 items-center">
         <ul class="w-1/5 content-center">
           <li class="no-underline">
             <router-link to="/">
-              <img src="@/assets/logo/Logo.png" class="h-8 min-w-30" />
+              <img
+                src="@/assets/logo/mainLogo.png"
+                class="h-8 w-30 max-w-[150px]"
+              />
             </router-link>
           </li>
         </ul>
-        <div class="w-2/5 max-w-xl items-center">
-          <ul class="flex align-center justify-between items-center">
+        <div class="w-2/5 max-w-[320px] max-sm:w-[180px] items-center">
+          <ul
+            class="flex align-center justify-between items-center max-sm:text-xs"
+          >
             <li class="">
               <router-link to="/" class="font-sans font-bold">홈</router-link>
             </li>

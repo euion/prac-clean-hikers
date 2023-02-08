@@ -22,10 +22,11 @@ const router = createRouter({
       component: CommunityList,
     },
     {
-      name: 'mountain-detail-page',
+      name: 'mountain-detail',
       path: '/search-mountain',
       meta: { needsAuth: true },
       component: MountainDetail,
+      props:true, 
     },
     {
       beforeEnter(to, from, next) {
@@ -36,9 +37,5 @@ const router = createRouter({
   ],
 });
 
-router.afterEach((to, from) => {
-  console.log('Global afterEach');
-  console.log(to, from);
-});
 
 export default router;
