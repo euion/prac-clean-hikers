@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-screen bg-[url('src/assets/img/main.png')]">
+    <div class="w-screen bg-[url('src/assets/img/main.png')] overflow-none">
       <div class="pt-24 pb-72">
         <div class="flex justify-center">
           <div class="flex-col pt-20">
