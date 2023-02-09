@@ -36,9 +36,8 @@
               <mountain-list
                 v-for="garbageList in garbageLists"
                 :key="garbageList.id"
-                :isModal="this.isModal"
                 :garbageList="garbageList"
-                :hoverImg="hoverImg"
+                :mountain="hoverImg"
               />
             </div>
           </div>
@@ -63,7 +62,6 @@ export default {
       cardLists: [],
       garbageLists: [],
       isClicked: false,
-      isModal: false,
       isLoading: false,
       errData: null, //초기값 오류 없음
     };

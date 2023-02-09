@@ -9,10 +9,10 @@
       <div>{{ Number(garbageList.trash).toFixed(1) }}</div>
       <div>{{ garbageList.difficulty }}</div>
     </div>
-    <div v-if="isModal == true" class="flex justify-center">
+    <div v-if="this.isModal" class="flex justify-center">
       <mountain-modal
-        :isModal="isModal"
-        :hoverImg="hoverImg"
+        :isModal="this.isModal"
+        v-model:hoverImg="hoverImg"
         :garbageList="garbageList"
       />
     </div>
@@ -24,7 +24,22 @@ import MountainModal from './MountainModal.vue';
 
 export default {
   name: 'mountain-list',
-  props: ['garbageList', 'hoverImg', 'isModal'],
+  props: ['garbageList', 'hoverImg'],
   components: { MountainModal },
+
+  data() {
+    return {
+      isModal: false,
+    };
+  },
+  methods: {
+    hoverImg() {
+      this.isModal = !this.isModal;
+      console.log(this.isModal);
+    },
+    closeModal() {
+      console.log(garbageList);
+    },
+  },
 };
 </script>
