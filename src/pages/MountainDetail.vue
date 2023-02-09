@@ -37,13 +37,16 @@
                 v-for="garbageList in garbageLists"
                 :key="garbageList.id"
                 :garbageList="garbageList"
-                :mountain="hoverImg"
+                @click="onSelectedGarbageList(garbageList)"
               />
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div v-if="this.isModal" class="flex justify-center">
+    <mountain-modal v-model:hoverImg="hoverImg" :garbageList="garbageList" />
   </div>
 </template>
 
@@ -61,15 +64,28 @@ export default {
     return {
       cardLists: [],
       garbageLists: [],
+      garbageList: {},
       isClicked: false,
       isLoading: false,
       errData: null, //초기값 오류 없음
+      isModal: false,
     };
   },
   methods: {
+    onSelectedGarbageList(list) {
+      console.log(list);
+      // this.garbageList = list;
+      // this.isModal = true;
+      if (list !== this.garbageList) {
+        this.garbageList = list;
+        this.isModal = true;
+      } else if (list === this.garbageList) {
+        this.isModal = false;
+      }
+    },
     hoverImg() {
       this.isModal = !this.isModal;
-      console.log(this.isModal);
+      // console.log(this.isModal);
     },
     loadMostGarbage() {
       this.isLoading = true;

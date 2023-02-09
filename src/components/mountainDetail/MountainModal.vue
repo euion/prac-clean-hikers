@@ -25,6 +25,6 @@
 <script>
 export default {
   name: 'mountain-modal',
-  props: ['isModal', 'garbageList', 'hoverImg'],
+  props: ['garbageList', 'hoverImg'],
 };
 </script>
