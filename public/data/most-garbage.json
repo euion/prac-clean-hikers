@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "설악산",
+      "trash": "50.422",
+      "latitude": "38.120389",
+      "longitude": "128.46576",
+      "address": "강원도 인제군",
+      "difficulty": "하",
+      "image": "https://www.knps.or.kr/upload/contest/19/20201005071505136.jpg"
+    },
+    {
+      "id": 1,
+      "name": "가야산",
+      "trash": "23.192",
+      "latitude": "35.822119",
+      "longitude": "128.117935",
+      "address": "경상남도 합천군",
+      "difficulty": "중",
+      "image": "https://www.hc.go.kr/CmsMultiFile/view.do?multifileId=MF00001906&idx=21278"
+    },
+    {
+      "id": 2,
+      "name": "속리산",
+      "trash": "26.4835",
+      "address": "충청북도 제천시",
+      "difficulty": "중",
+      "image": "https://www.knps.or.kr/upload/contest/19/20201005071505136.jpg"
+    },
+    {
+      "id": 3,
+      "name": "주왕산",
+      "trash": "26.394",
+      "latitude": "36.389695",
+      "longitude": "129.167458",
+      "address": "경상남도 청송군",
+      "difficulty": "중",
+      "image": "https://t1.daumcdn.net/cfile/tistory/2710944C58F1C57E20"
+    }
+  ]
+}

@@ -11,7 +11,7 @@
       </li>
     </ul>
     <div class="ml-auto flex">
-      <ul class="text-white">
+      <ul class="text-white max-sm:text-xs">
         <li><h1 class="font-bold">사이트 맵</h1></li>
         <li>
           <p class="text-slate-300 py-2"><a href="/">홈</a></p>
