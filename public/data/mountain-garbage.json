@@ -47,6 +47,16 @@
       "address": "서울특별시",
       "difficulty": "하",
       "image": "https://www.yangju.go.kr/DATA/bbs/203/20160718025159104.jpg"
+    },
+    {
+      "id": 5,
+      "name": "태백산",
+      "trash": "34.822",
+      "latitude": "37.095704",
+      "longitude": "128.915197",
+      "address": "강원도 태백시",
+      "difficulty": "하",
+      "image": "https://www.knps.or.kr/upload/contest/19/20201005070128857.jpg"
     }
   ]
 }

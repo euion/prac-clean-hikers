@@ -1,7 +1,9 @@
 <template>
   <header>
     <nav>
-      <div class="flex justify-between px-16 h-16 items-center">
+      <div
+        class="flex justify-between px-16 h-16 items-center border border-b-slate-200"
+      >
         <ul class="w-1/5 content-center">
           <li class="no-underline">
             <router-link to="/">
