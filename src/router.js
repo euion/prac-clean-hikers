@@ -16,7 +16,7 @@ const router = createRouter({
       component: Main,
     },
     {
-      name: 'community-list-page',
+      name: 'community-list',
       path: '/community',
       meta: { needsAuth: true },
       component: CommunityList,
@@ -26,7 +26,7 @@ const router = createRouter({
       path: '/search-mountain',
       meta: { needsAuth: true },
       component: MountainDetail,
-      props:true, 
+      props: true,
     },
     {
       beforeEnter(to, from, next) {
@@ -36,6 +36,5 @@ const router = createRouter({
     { path: '/:notFound(.*)', component: NotFound },
   ],
 });
-
 
 export default router;

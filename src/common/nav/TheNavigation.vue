@@ -1,7 +1,9 @@
 <template>
   <header>
     <nav>
-      <div class="flex justify-between px-16 h-16 items-center">
+      <div
+        class="flex justify-between px-16 h-16 items-center border border-b-slate-200"
+      >
         <ul class="w-1/5 content-center">
           <li class="no-underline">
             <router-link to="/">
@@ -16,8 +18,10 @@
           <ul
             class="flex align-center justify-between items-center max-sm:text-xs"
           >
-            <li class="">
-              <router-link to="/" class="font-sans font-bold">홈</router-link>
+            <!-- <li class="hover:text-lime-600">
+              <router-link to="/"
+                ><p class="font-sans font-bold">홈</p></router-link
+              >
             </li>
             <li>
               <router-link to="/search-mountain" class="font-sans font-bold"
@@ -30,7 +34,20 @@
               >
             </li>
             <li>
-              <router-link to="/community"
+              <router-link to="/"
+                ><img src="@/assets/icon/profile.png"
+              /></router-link>
+            </li> -->
+
+            <li v-for="(nav, index) in navList" :key="index">
+              <router-link :to="nav.link">
+                <p class="hover:text-lime-600 font-sans font-bold">
+                  {{ nav.content }}
+                </p>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/"
                 ><img src="@/assets/icon/profile.png"
               /></router-link>
             </li>
@@ -40,3 +57,26 @@
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      navList: [
+        {
+          link: '/',
+          content: '홈',
+        },
+        {
+          link: '/search-mountain',
+          content: '산찾기',
+        },
+        {
+          link: '/community',
+          content: '커뮤니티',
+        },
+      ],
+    };
+  },
+};
+</script>
