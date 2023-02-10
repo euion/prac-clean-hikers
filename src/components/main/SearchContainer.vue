@@ -23,7 +23,7 @@
       <ul class="w-25 pr-2">
         <div>
           <datepicker
-            v-model="picked"
+            v-model="datePicked"
             :locale="locale"
             :weekStartsOn="0"
             :inputFormat="inputFormat"
@@ -38,6 +38,7 @@
             <option value="personnelDefault" selected disabled>인 원</option>
             <option
               v-for="personnel in personnels"
+              :value="personnel.value"
               @change="mainParams(personnel.value)"
               :key="personnel.id"
             >
@@ -104,11 +105,11 @@ export default {
     };
   },
   setup() {
-    let picked = ref(new Date());
+    let datePicked = ref(new Date());
     let locale = ref(ko);
     let inputFormat = ref('yyyy-MM-dd');
     return {
-      picked,
+      datePicked,
       locale,
       inputFormat,
     };
@@ -120,13 +121,15 @@ export default {
     },
     clickParams() {
       this.$router.push({
-        name: 'mountain-detail',
+        name: 'community-list',
         query: {
           region: this.regionSelected,
-          date: this.picked,
+          date: this.datePicked,
           personnel: this.personnelSelected,
         },
       });
+      // console.log('지역 : ', this.regionSelected);
+      // console.log('인원 : ', this.personnelSelected);
     },
   },
 };

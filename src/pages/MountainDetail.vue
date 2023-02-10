@@ -22,7 +22,7 @@
         <h1 class="text-3xl font-sans font-bold py-5">
           궁금한 산을 검색해보세요
         </h1>
-        <mountain-search-bar />
+
         <div class="grid place-content-center">
           <div class="grid gap-1">
             <div
@@ -74,7 +74,7 @@ export default {
       mountainCardList: [],
       mountainList: [],
       mountainItem: {},
-      isClicked: false,
+      search: '', //검색 구현 중입니다
       isLoading: false,
       errData: null, //초기값 오류 없음
       isModal: false,
@@ -82,11 +82,9 @@ export default {
   },
   methods: {
     onSelectedMountainList(item) {
-      console.log(item);
-      // this.garbageList = list;
-      // this.isModal = true;
+      // console.log(item);
       if (item !== this.mountainItem) {
-        console.log(this.isModal);
+        // console.log(this.isModal);
         this.mountainItem = item;
         this.isModal = true;
       } else if (item === this.mountainItem) {

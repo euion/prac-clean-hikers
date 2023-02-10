@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import SearchContainer from '@/components/SearchContainer.vue';
+import SearchContainer from '@/components/main/SearchContainer.vue';
 import MainFooter from '@/common/footer/MainFooter.vue';
 
 export default {
