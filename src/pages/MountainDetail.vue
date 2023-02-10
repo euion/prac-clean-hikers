@@ -22,7 +22,7 @@
         <h1 class="text-3xl font-sans font-bold py-5">
           궁금한 산을 검색해보세요
         </h1>
-
+        <mountain-search-bar @setMountainSearch="setMountainSearch" />
         <div class="grid place-content-center">
           <div class="grid gap-1">
             <div
@@ -74,7 +74,7 @@ export default {
       mountainCardList: [],
       mountainList: [],
       mountainItem: {},
-      search: '', //검색 구현 중입니다
+      mountainSearch: '', //검색 구현 중입니다
       isLoading: false,
       errData: null, //초기값 오류 없음
       isModal: false,
@@ -105,8 +105,7 @@ export default {
         })
         .then((data) => {
           this.isLoading = false;
-          const mountainCardList = data.data;
-          this.mountainCardList = mountainCardList;
+          this.mountainCardList = data.data;
         })
         .catch((err) => {
           console.log(err);
@@ -126,8 +125,7 @@ export default {
         })
         .then((data) => {
           this.isLoading = false;
-          const mountainList = data.data;
-          this.mountainList = mountainList;
+          this.mountainList = data.data;
         })
         .catch((err) => {
           console.log(err);
@@ -136,6 +134,7 @@ export default {
             '오류가 발생하였습니다. 다시 새로고침을 시도하여 주십시오';
         });
     },
+    setMountainSearch() {},
   },
   mounted() {
     this.loadMostGarbageMountain();
