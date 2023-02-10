@@ -10,11 +10,11 @@
           {{ errData }}
         </p>
         <div class="flex justify-center" v-else>
-          <mountain-top
-            v-for="cardList in cardLists"
-            :key="cardList.id"
-            :mountain="cardList"
-          ></mountain-top>
+          <mountain-top-card
+            v-for="mountainCard in mountainCardList"
+            :key="mountainCard.id"
+            :mountainCard="mountainCard"
+          ></mountain-top-card>
         </div>
       </div>
 
@@ -22,6 +22,7 @@
         <h1 class="text-3xl font-sans font-bold py-5">
           궁금한 산을 검색해보세요
         </h1>
+        <mountain-search-bar />
         <div class="grid place-content-center">
           <div class="grid gap-1">
             <div
@@ -33,11 +34,11 @@
               <b>등산 난이도</b>
             </div>
             <div>
-              <mountain-list
-                v-for="garbageList in garbageLists"
-                :key="garbageList.id"
-                :garbageList="garbageList"
-                @click="onSelectedGarbageList(garbageList)"
+              <mountain-table
+                v-for="mountainItem in mountainList"
+                :key="mountainItem.id"
+                :mountainItem="mountainItem"
+                @click="onSelectedMountainList(mountainItem)"
               />
             </div>
           </div>
@@ -46,25 +47,33 @@
     </div>
   </div>
   <div v-if="this.isModal" class="flex justify-center">
-    <mountain-modal v-model:hoverImg="hoverImg" :garbageList="garbageList" />
+    <mountain-modal
+      v-model:onModalControl="onModalControl"
+      :mountainItem="mountainItem"
+    />
   </div>
 </template>
 
 <script>
-import MountainName from '@/components/mountainDetail/MountainName.vue';
-import MountainTop from '@/components/mountainDetail/MountainTop.vue';
-import MountainList from '@/components/mountainDetail/MountainList.vue';
+import MountainTopCard from '@/components/mountainDetail/MountainTopCard.vue';
+import MountainTable from '@/components/mountainDetail/MountainTable.vue';
 import MountainModal from '@/components/mountainDetail/MountainModal.vue';
+import MountainSearchBar from '@/components/mountainDetail/MountainSearchBar.vue';
 
 export default {
   name: 'mountain-detail',
-  components: { MountainName, MountainTop, MountainList, MountainModal },
+  components: {
+    MountainTopCard,
+    MountainTable,
+    MountainModal,
+    MountainSearchBar,
+  },
 
   data() {
     return {
-      cardLists: [],
-      garbageLists: [],
-      garbageList: {},
+      mountainCardList: [],
+      mountainList: [],
+      mountainItem: {},
       isClicked: false,
       isLoading: false,
       errData: null, //초기값 오류 없음
@@ -72,22 +81,22 @@ export default {
     };
   },
   methods: {
-    onSelectedGarbageList(list) {
-      console.log(list);
+    onSelectedMountainList(item) {
+      console.log(item);
       // this.garbageList = list;
       // this.isModal = true;
-      if (list !== this.garbageList) {
-        this.garbageList = list;
+      if (item !== this.mountainItem) {
+        console.log(this.isModal);
+        this.mountainItem = item;
         this.isModal = true;
-      } else if (list === this.garbageList) {
-        this.isModal = false;
+      } else if (item === this.mountainItem) {
+        this.isModal = true;
       }
     },
-    hoverImg() {
+    onModalControl() {
       this.isModal = !this.isModal;
-      // console.log(this.isModal);
     },
-    loadMostGarbage() {
+    loadMostGarbageMountain() {
       this.isLoading = true;
       this.errData = null;
       fetch('http://localhost:5173/data/most-garbage.json')
@@ -98,8 +107,8 @@ export default {
         })
         .then((data) => {
           this.isLoading = false;
-          const cardLists = data.data;
-          this.cardLists = cardLists;
+          const mountainCardList = data.data;
+          this.mountainCardList = mountainCardList;
         })
         .catch((err) => {
           console.log(err);
@@ -119,8 +128,8 @@ export default {
         })
         .then((data) => {
           this.isLoading = false;
-          const garbageLists = data.data;
-          this.garbageLists = garbageLists;
+          const mountainList = data.data;
+          this.mountainList = mountainList;
         })
         .catch((err) => {
           console.log(err);
@@ -131,7 +140,7 @@ export default {
     },
   },
   mounted() {
-    this.loadMostGarbage();
+    this.loadMostGarbageMountain();
     this.loadMountainDetail();
   },
 };

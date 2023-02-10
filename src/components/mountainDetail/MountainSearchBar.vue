@@ -1,9 +1,9 @@
 <template>
   <div v-for="garbageList in garbageLists" :key="garbageList.id">
     <p>{{ garbageList.name }}</p>
-    <!-- <h3>
+    <h3>
       {{ leaveDate }}, {{ region }}으로 여행가요! 선착순 {{ personnel }}명
-    </h3> -->
+    </h3>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 import dayjs from 'dayjs';
 
 export default {
-  name: 'mountain-name',
+  name: 'mountain-search-bar',
   components: {
     dayjs,
   },

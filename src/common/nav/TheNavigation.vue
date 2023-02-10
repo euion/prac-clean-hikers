@@ -16,9 +16,9 @@
         </ul>
         <div class="w-2/5 max-w-[320px] max-sm:w-[180px] items-center">
           <ul
-            class="flex align-center justify-between items-center max-sm:text-xs"
+            class="group flex align-center justify-between items-center max-sm:text-xs"
           >
-            <li class="">
+            <li class="group-hover:text-[rgb(101 163 13)]">
               <router-link to="/" class="font-sans font-bold">홈</router-link>
             </li>
             <li>
@@ -32,7 +32,7 @@
               >
             </li>
             <li>
-              <router-link to="/community"
+              <router-link to="/"
                 ><img src="@/assets/icon/profile.png"
               /></router-link>
             </li>

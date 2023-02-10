@@ -4,10 +4,10 @@
       class="border border-b-lime-600 grid grid-cols-4 py-[20px] font-sans hover:bg-[#dee7cb] cursor-pointer"
       @click="mountain"
     >
-      <b class="font-sans">{{ garbageList.name }}</b>
-      <div>{{ garbageList.address }}</div>
-      <div>{{ Number(garbageList.trash).toFixed(1) }}</div>
-      <div>{{ garbageList.difficulty }}</div>
+      <b class="font-sans">{{ mountainItem.name }}</b>
+      <div>{{ mountainItem.address }}</div>
+      <div>{{ Number(mountainItem.trash).toFixed(1) }}</div>
+      <div>{{ mountainItem.difficulty }}</div>
     </div>
   </div>
 </template>
@@ -16,8 +16,8 @@
 import MountainModal from './MountainModal.vue';
 
 export default {
-  name: 'mountain-list',
-  props: ['garbageList', 'mountain'],
+  name: 'mountain-table',
+  props: ['mountainItem', 'mountain'],
   components: { MountainModal },
 
   data() {
@@ -26,10 +26,6 @@ export default {
     };
   },
   methods: {
-    // hoverImg() {
-    //   this.isModal = !this.isModal;
-    //   console.log(this.isModal);
-    // },
     closeModal() {
       console.log(garbageList);
     },
