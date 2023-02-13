@@ -22,7 +22,7 @@
         <h1 class="text-3xl font-sans font-bold py-5">
           궁금한 산을 검색해보세요
         </h1>
-        <mountain-search-bar @setMountainSearch="setMountainSearch" />
+        <!-- <mountain-search-bar @setMountainSearch="setMountainSearch" /> -->
         <div class="grid place-content-center">
           <div class="grid gap-1">
             <div
@@ -34,12 +34,13 @@
               <b>등산 난이도</b>
             </div>
             <div>
-              <mountain-table
+              <mountain-table2 />
+              <!-- <mountain-table
                 v-for="mountainItem in mountainList"
                 :key="mountainItem.id"
                 :mountainItem="mountainItem"
                 @click="onSelectedMountainList(mountainItem)"
-              />
+              /> -->
             </div>
           </div>
         </div>
@@ -56,7 +57,7 @@
 
 <script>
 import MountainTopCard from '@/components/mountainDetail/MountainTopCard.vue';
-import MountainTable from '@/components/mountainDetail/MountainTable.vue';
+import MountainTable2 from '@/components/mountainDetail/MountainTable2.vue';
 import MountainModal from '@/components/mountainDetail/MountainModal.vue';
 import MountainSearchBar from '@/components/mountainDetail/MountainSearchBar.vue';
 
@@ -64,7 +65,7 @@ export default {
   name: 'mountain-detail',
   components: {
     MountainTopCard,
-    MountainTable,
+    MountainTable2,
     MountainModal,
     MountainSearchBar,
   },
