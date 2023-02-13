@@ -1,8 +1,13 @@
 <template>
-  <a-table :data-source="data" :columns="columns">
+  <a-table
+    :columns="columns"
+    :data-source="dataSource"
+    :pagination="pagination"
+    @change="onChange"
+  >
     <template #headerCell="{ column }">
       <template v-if="column.key === 'name'">
-        <span class="text-lime-600">산이름</span>
+        <span>산이름</span>
       </template>
     </template>
     <template
@@ -43,64 +48,74 @@
         </a-button>
       </div>
     </template>
-    <template #customFilterIcon="{ filtered }">
-      <search-outlined :style="{ color: filtered ? '#108ee9' : undefined }" />
-    </template>
-    <template #bodyCell="{ text, column }">
-      <span v-if="searchText && searchedColumn === column.dataIndex">
-        <template
-          v-for="(fragment, i) in text
-            .toString()
-            .split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i'))"
-        >
-          <mark
-            v-if="fragment.toLowerCase() === searchText.toLowerCase()"
-            :key="i"
-            class="highlight"
-          >
-            {{ fragment }}
-          </mark>
-          <template v-else>{{ fragment }}</template>
-        </template>
-      </span>
-    </template>
   </a-table>
 </template>
 <script>
+import { usePagination } from 'vue-request';
 import { SearchOutlined } from '@ant-design/icons-vue';
-import { defineComponent, reactive, ref, toRefs } from 'vue';
+import { reactive, ref, toRefs, computed } from 'vue';
+import axios from 'axios';
 import 'ant-design-vue/dist/antd.css';
+// const queryData = (params) => {
+//   return axios
+//     .get('http://localhost:5173/data/mountain-garbage.json')
+//     .then((res) => console.log('params', res));
+// };
 
-const data = [
-  {
-    id: 0,
-    name: '',
-    age: 0,
-    address: '',
+export default {
+  name: 'mountain-table',
+  data() {
+    return {
+      isLoading: false,
+      mountainSearchList: [
+        // {
+        //   key: 0,
+        //   name: '',
+        //   garbage: '',
+        // },
+      ],
+    };
   },
-];
-
-export default defineComponent({
   components: {
     SearchOutlined,
   },
-
-  data() {
-    return {
-      mountainCardList: [],
-      mountainList: [],
-      mountainItem: {},
-      mountainSearch: '', //검색 구현 중입니다
-      isLoading: false,
-      errData: null, //초기값 오류 없음
-      isModal: false,
-    };
-  },
+  // created() {
+  //   this.setMountainSearchList();
+  // },
   setup() {
+    const {
+      data: dataSource,
+      run,
+      loading,
+      current,
+      pageSize,
+    } = usePagination(queryData, {
+      // formatResult: (res) => res.data.results,
+      pagination: {
+        currentKey: 'page',
+        pageSizeKey: 'results',
+      },
+    });
+    const pagination = computed(() => ({
+      total: 200,
+      current: current.value,
+      pageSize: pageSize.value,
+    }));
+
     const state = reactive({
       searchText: '',
       searchedColumn: '',
     });
+    const onChange = (pag, filters, sorter) => {
+      console.log('params', pagination, filters, sorter);
+      run({
+        results: pag.pageSize,
+        page: pag?.current,
+        sortField: sorter.field,
+        sortOrder: sorter.order,
+        ...filters,
+      });
+    };
 
     const searchInput = ref();
 
@@ -123,38 +138,27 @@ export default defineComponent({
       {
         title: '위치',
         dataIndex: 'location',
-        width: '20%',
       },
       {
         title: '연간 쓰레기 처리량(톤)',
-        dataIndex: 'address',
-        key: 'address',
-        customFilterDropdown: true,
-        onFilter: (value, record) =>
-          record.address.toString().toLowerCase().includes(value.toLowerCase()),
-        onFilterDropdownVisibleChange: (visible) => {
-          if (visible) {
-            setTimeout(() => {
-              searchInput.value.focus();
-            }, 100);
-          }
-        },
-        filterMultiple: false,
-        onFilter: (value, record) => record.name.indexOf(value) === 0,
-        sorter: (a, b) => a.name.length - b.name.length,
-        sortDirections: ['descend'],
+        dataIndex: 'garbage',
+        defaultSortOrder: 'descend',
+        sorter: (a, b) => a.garbage - b.garbage,
       },
       {
-        title: '등산난이도',
-        dataIndex: 'gender',
+        title: '등산 난이도',
+        dataIndex: 'level',
+        // key: 'level',
         filters: [
           { text: '상', value: '상' },
           { text: '중', value: '중' },
           { text: '하', value: '하' },
         ],
-        width: '20%',
+        filterMultiple: false,
+        onFilter: (value, record) => record.level.indexOf(value) === 0,
       },
     ];
+
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
       confirm();
       state.searchText = selectedKeys[0];
@@ -166,45 +170,43 @@ export default defineComponent({
       state.searchText = '';
     };
 
+    async function queryData() {
+      try {
+        await axios
+          .get('http://localhost:5173/data/mountain-garbage.json')
+          .then((res) => {
+            //console.log(res.data.data);
+            // this.mountainSearchList = res.data.data;
+            for (const value of res.data.data) {
+              console.log(value);
+              // this.mountainSearchList = value;
+            }
+          });
+      } catch (error) {
+        console.error(error);
+      }
+    }
     return {
-      data,
+      dataSource,
+      pagination,
       columns,
+      loading,
       handleSearch,
       handleReset,
       searchInput,
+      onChange,
       ...toRefs(state),
     };
   },
+
   methods: {
-    loadMountainDetail() {
-      this.isLoading = true;
-      this.errData = null;
-      fetch('http://localhost:5173/data/mountain-garbage.json')
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-        })
-        .then((data) => {
-          this.isLoading = false;
-          this.mountainList = data.data;
-        })
-        .catch((err) => {
-          console.log(err);
-          this.isLoading = false;
-          this.errData =
-            '오류가 발생하였습니다. 다시 새로고침을 시도하여 주십시오';
-        });
+    setMountainSearchList(props) {
+      // this.mountainSearchList = props;
+      console.log(props);
     },
   },
-  mounted() {
-    this.loadMountainDetail();
-  },
-});
+  // mounted() {
+  //   this.queryData();
+  // },
+};
 </script>
-<style scoped>
-.highlight {
-  background-color: rgb(255, 192, 105);
-  padding: 0px;
-}
-</style>
