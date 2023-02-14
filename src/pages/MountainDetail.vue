@@ -24,24 +24,17 @@
         </h1>
         <div class="flex justify-center">
           <div class="w-4/6">
-            <mountain-table />
+            <mountain-table :mountainList="mountainList" />
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-if="this.isModal" class="flex justify-center">
-    <mountain-modal
-      @:onModalControl="onModalControl"
-      :mountainItem="mountainItem"
-    />
   </div>
 </template>
 
 <script>
 import MountainTopCard from '@/components/mountainDetail/MountainTopCard.vue';
 import MountainTable from '@/components/mountainDetail/MountainTable.vue';
-import MountainModal from '@/components/mountainDetail/MountainModal.vue';
 import MountainSearchBar from '@/components/mountainDetail/MountainSearchBar.vue';
 
 export default {
@@ -49,7 +42,6 @@ export default {
   components: {
     MountainTopCard,
     MountainTable,
-    MountainModal,
     MountainSearchBar,
   },
 
@@ -57,10 +49,8 @@ export default {
     return {
       mountainCardList: [],
       mountainList: [],
-      mountainItem: {},
       isLoading: false,
       errData: null,
-      isModal: false,
     };
   },
   methods: {
@@ -72,9 +62,7 @@ export default {
         this.isModal = true;
       }
     },
-    onModalControl() {
-      this.isModal = !this.isModal;
-    },
+
     loadMostGarbageMountain() {
       this.isLoading = true;
       this.errData = null;

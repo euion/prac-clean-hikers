@@ -1,8 +1,13 @@
 <template>
-  <a-table :columns="columns" :data-source="this.mountainSearchList" bordered>
+  <a-table
+    :columns="columns"
+    :data-source="mountainList"
+    bordered
+    :customRow="customRow"
+  >
     <template #headerCell="{ column }">
       <template v-if="column.key === 'name'">
-        <span>산이름</span>
+        <span @click="controlModal">산이름</span>
       </template>
     </template>
     <template
@@ -44,27 +49,36 @@
       </div>
     </template>
   </a-table>
+  <div v-if="this.isModal" class="flex justify-center">
+    <mountain-modal
+      @onModalControl="onModalControl"
+      :mountainItem="mountainItem"
+    />
+  </div>
 </template>
+
 <script>
 import { SearchOutlined } from '@ant-design/icons-vue';
+import MountainModal from '@/components/mountainDetail/MountainModal.vue';
 import 'ant-design-vue/dist/antd.css';
 
 export default {
   name: 'mountain-table',
-
+  props: ['mountainList'],
   components: {
     SearchOutlined,
+    MountainModal,
   },
+
   data() {
     return {
+      indexState: 0,
       isModal: false,
       mountainSearchList: [],
+      mountainItem: {},
       searchText: '',
       isLoading: false,
       searchInput: null,
-      searchedColumn: '',
-      searchText: '',
-
       columns: [
         {
           title: '산이름',
@@ -111,6 +125,22 @@ export default {
   },
 
   methods: {
+    onModalControl() {
+      this.isModal = !this.isModal;
+    },
+    customRow(record) {
+      return {
+        onClick: (event) => {
+          console.log('record', record, 'event', event),
+            (this.mountainItem = record);
+          this.onModalControl();
+        },
+      };
+    },
+    controlModal() {
+      this.$emit('click', (this.isModal = !this.isModal));
+      console.log(this.isModal);
+    },
     handleSearch(selectedKeys, confirm, dataIndex) {
       confirm();
       this.searchText = selectedKeys[0];
@@ -121,28 +151,6 @@ export default {
       clearFilters({ confirm: true });
       this.searchText = '';
     },
-    queryData() {
-      this.isLoading = true;
-      this.errData = null;
-      fetch('http://localhost:5173/data/mountain-garbage.json')
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-        })
-        .then((data) => {
-          this.mountainSearchList = data.data;
-        })
-        .catch((err) => {
-          console.log(err);
-          this.isLoading = false;
-          this.errData =
-            '오류가 발생하였습니다. 다시 새로고침을 시도하여 주십시오';
-        });
-    },
-  },
-  mounted() {
-    this.queryData();
   },
 };
 </script>
