@@ -70,10 +70,17 @@ export default {
           title: '산이름',
           dataIndex: 'name',
           key: 'name',
+        },
+        {
+          title: '위치',
+          dataIndex: 'address',
           customFilterDropdown: true,
 
           onFilter: (value, record) =>
-            record.name.toString().toLowerCase().includes(value.toLowerCase()),
+            record.address
+              .toString()
+              .toLowerCase()
+              .includes(value.toLowerCase()),
           onFilterDropdownVisibleChange: (visible) => {
             if (visible) {
               setTimeout(() => {
@@ -81,10 +88,6 @@ export default {
               }, 0);
             }
           },
-        },
-        {
-          title: '위치',
-          dataIndex: 'address',
         },
         {
           title: '연간 쓰레기 처리량(톤)',
