@@ -38,7 +38,6 @@ export default {
   methods: {
     onclickImg() {
       this.isModal = !this.isModal;
-      console.log(this.isModal);
     },
   },
 };

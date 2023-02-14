@@ -59,6 +59,56 @@
       "address": "강원도 태백시",
       "difficulty": "하",
       "image": "https://www.knps.or.kr/upload/contest/19/20201005070128857.jpg"
+    },
+    {
+      "id": "6",
+      "name": "무등산",
+      "trash": "16.144",
+      "latitude": "35.13436",
+      "longitude": "126.988595",
+      "address": "광주광역시",
+      "difficulty": "상",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/%EB%AC%B4%EB%93%B1%EC%82%B0_%EC%A3%BC%EC%83%81%EC%A0%88%EB%A6%AC%EB%8C%80.jpg"
+    },
+    {
+      "id": "7",
+      "name": "계룡산",
+      "trash": "37.504",
+      "latitude": "36.342114",
+      "longitude": "127.205563",
+      "address": "충청남도 계룡시",
+      "difficulty": "중",
+      "image": "https://www.knps.or.kr/upload/contest/20/20211018015603551.jpg"
+    },
+    {
+      "id": "8",
+      "name": "칠갑산",
+      "trash": "34.822",
+      "latitude": "37.095704",
+      "longitude": "128.915197",
+      "address": "강원도 태백시",
+      "difficulty": "하",
+      "image": "https://www.knps.or.kr/upload/contest/19/20201005070128857.jpg"
+    },
+    {
+      "id": "9",
+      "name": "내장산",
+      "trash": "30.88",
+      "latitude": "35.13436",
+      "longitude": "126.988595",
+      "address": "전라북도 순창군",
+      "difficulty": "상",
+      "image": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/516bff7e-94b8-49e0-a66e-0ccbddcaee75.jpeg"
+    },
+    {
+      "id": "10",
+      "name": "연목산",
+      "trash": "39.504",
+      "latitude": "36.342114",
+      "longitude": "127.205563",
+      "address": "충청남도 계룡시",
+      "difficulty": "중",
+      "image": "https://www.knps.or.kr/upload/contest/20/20211018015603551.jpg"
     }
   ]
 }

@@ -20,7 +20,7 @@
 
       <div class="py-4">
         <h1 class="text-3xl font-sans font-bold py-5">
-          국립공원에 관한 세부 데이터에요
+          산에 관한 데이터를 클릭해보세요.
         </h1>
         <div class="flex justify-center">
           <div class="w-4/6">

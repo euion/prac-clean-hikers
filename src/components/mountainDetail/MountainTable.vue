@@ -131,15 +131,10 @@ export default {
     customRow(record) {
       return {
         onClick: (event) => {
-          console.log('record', record, 'event', event),
-            (this.mountainItem = record);
+          this.mountainItem = record;
           this.onModalControl();
         },
       };
-    },
-    controlModal() {
-      this.$emit('click', (this.isModal = !this.isModal));
-      console.log(this.isModal);
     },
     handleSearch(selectedKeys, confirm, dataIndex) {
       confirm();
