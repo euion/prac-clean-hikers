@@ -58,17 +58,14 @@ export default {
       mountainCardList: [],
       mountainList: [],
       mountainItem: {},
-      mountainSearch: '', //검색 구현 중입니다
       isLoading: false,
-      errData: null, //초기값 오류 없음
+      errData: null,
       isModal: false,
     };
   },
   methods: {
     onSelectedMountainList(item) {
-      // console.log(item);
       if (item !== this.mountainItem) {
-        // console.log(this.isModal);
         this.mountainItem = item;
         this.isModal = true;
       } else if (item === this.mountainItem) {

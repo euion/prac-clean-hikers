@@ -112,10 +112,6 @@ export default {
   },
 
   methods: {
-    onclickItem() {
-      this.isModal = !this.isModal;
-      console.log(this.isModal);
-    },
     handleSearch(selectedKeys, confirm, dataIndex) {
       confirm();
       this.searchText = selectedKeys[0];

@@ -50,14 +50,12 @@
       </ul>
 
       <div>
-        <!-- <a href="/search-mountain"> -->
         <button
           class="bg-blue-700 py-3 px-6 text-white rounded-2xl w-25 ml-2"
           @click="clickParams"
         >
           찾아보기
         </button>
-        <!-- </a> -->
       </div>
     </div>
   </div>
@@ -128,8 +126,6 @@ export default {
           personnel: this.personnelSelected,
         },
       });
-      // console.log('지역 : ', this.regionSelected);
-      // console.log('인원 : ', this.personnelSelected);
     },
   },
 };
