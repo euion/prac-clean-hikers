@@ -1,10 +1,5 @@
 <template>
-  <a-table
-    :columns="columns"
-    :data-source="dataSource"
-    :pagination="pagination"
-    @change="onChange"
-  >
+  <a-table :columns="columns" :data-source="mountainSearchList">
     <template #headerCell="{ column }">
       <template v-if="column.key === 'name'">
         <span>산이름</span>
@@ -48,6 +43,12 @@
         </a-button>
       </div>
     </template>
+    <!-- <div v-if="this.isModal" class="flex justify-center">
+      <mountain-modal
+        v-model:onModalControl="onModalControl"
+        :mountainItem="mountainItem"
+      />
+    </div> -->
   </a-table>
 </template>
 <script>
@@ -56,39 +57,19 @@ import { SearchOutlined } from '@ant-design/icons-vue';
 import { reactive, ref, toRefs, computed } from 'vue';
 import axios from 'axios';
 import 'ant-design-vue/dist/antd.css';
-// const queryData = (params) => {
-//   return axios
-//     .get('http://localhost:5173/data/mountain-garbage.json')
-//     .then((res) => console.log('params', res));
-// };
 
+const mountainSearchList = [];
 export default {
   name: 'mountain-table',
-  data() {
-    return {
-      isLoading: false,
-      mountainSearchList: [
-        // {
-        //   key: 0,
-        //   name: '',
-        //   garbage: '',
-        // },
-      ],
-    };
-  },
   components: {
     SearchOutlined,
   },
-  // created() {
-  //   this.setMountainSearchList();
-  // },
   setup() {
     const {
-      data: dataSource,
-      run,
       loading,
       current,
       pageSize,
+      // mountainSearchList,
     } = usePagination(queryData, {
       // formatResult: (res) => res.data.results,
       pagination: {
@@ -96,6 +77,7 @@ export default {
         pageSizeKey: 'results',
       },
     });
+
     const pagination = computed(() => ({
       total: 200,
       current: current.value,
@@ -106,17 +88,6 @@ export default {
       searchText: '',
       searchedColumn: '',
     });
-    const onChange = (pag, filters, sorter) => {
-      console.log('params', pagination, filters, sorter);
-      run({
-        results: pag.pageSize,
-        page: pag?.current,
-        sortField: sorter.field,
-        sortOrder: sorter.order,
-        ...filters,
-      });
-    };
-
     const searchInput = ref();
 
     const columns = [
@@ -175,11 +146,18 @@ export default {
         await axios
           .get('http://localhost:5173/data/mountain-garbage.json')
           .then((res) => {
-            //console.log(res.data.data);
-            // this.mountainSearchList = res.data.data;
-            for (const value of res.data.data) {
-              console.log(value);
-              // this.mountainSearchList = value;
+            const temp = res.data.data;
+            console.log(temp[0]);
+            //mountainSearchList = res.data.data;
+            for (let i = 0; i < res.data.data.length; i++) {
+              mountainSearchList.push({
+                key: temp[i].id,
+                name: temp[i].name,
+                garbage: temp[i].trash,
+                address: temp[i].address,
+                location: temp[i].address,
+                level: temp[i].difficulty,
+              });
             }
           });
       } catch (error) {
@@ -187,14 +165,14 @@ export default {
       }
     }
     return {
-      dataSource,
+      mountainSearchList,
       pagination,
       columns,
       loading,
       handleSearch,
       handleReset,
       searchInput,
-      onChange,
+      mountainSearchList,
       ...toRefs(state),
     };
   },
@@ -204,9 +182,22 @@ export default {
       // this.mountainSearchList = props;
       console.log(props);
     },
+    async queryData() {
+      try {
+        await axios
+          .get('http://localhost:5173/data/mountain-garbage.json')
+          .then((res) => {
+            console.log(res.data.data);
+            this.mountainSearchList = res.data.data;
+            for (const value of res.data.data) {
+              console.log(value);
+              // this.mountainSearchList = value;
+            }
+          });
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
-  // mounted() {
-  //   this.queryData();
-  // },
 };
 </script>

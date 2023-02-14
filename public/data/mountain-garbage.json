@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "id": 0,
+      "id": "0",
       "name": "설악산",
       "trash": "50.422",
       "latitude": "38.120389",
@@ -11,7 +11,7 @@
       "image": "https://www.knps.or.kr/upload/contest/19/20201005071505136.jpg"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "가야산",
       "trash": "23.192",
       "latitude": "35.822119",
@@ -21,15 +21,17 @@
       "image": "https://www.hc.go.kr/CmsMultiFile/view.do?multifileId=MF00001906&idx=21278"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "속리산",
       "trash": "26.4835",
+      "latitude": "35.822119",
+      "longitude": "128.117935",
       "address": "충청북도 제천시",
-      "difficulty": "중",
+      "difficulty": "상",
       "image": "https://www.knps.or.kr/upload/contest/19/20201005071505136.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "주왕산",
       "trash": "26.394",
       "latitude": "36.389695",
@@ -39,7 +41,7 @@
       "image": "https://t1.daumcdn.net/cfile/tistory/2710944C58F1C57E20"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "북한산",
       "trash": "53.106",
       "latitude": "37.660934",
@@ -49,7 +51,7 @@
       "image": "https://www.yangju.go.kr/DATA/bbs/203/20160718025159104.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "태백산",
       "trash": "34.822",
       "latitude": "37.095704",
