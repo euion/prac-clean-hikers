@@ -98,7 +98,6 @@ export default {
         {
           title: '등산 난이도',
           dataIndex: 'difficulty',
-          // key: 'level',
           filters: [
             { text: '상', value: '상' },
             { text: '중', value: '중' },
