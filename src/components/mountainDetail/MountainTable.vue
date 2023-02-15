@@ -19,7 +19,7 @@
         column,
       }"
     >
-      <div style="padding: 8px">
+      <div class="p-[8px]">
         <a-input
           ref="searchInput"
           :placeholder="`Search ${column.dataIndex}`"
@@ -86,7 +86,7 @@ export default {
           key: 'name',
         },
         {
-          title: '위치',
+          title: '주소',
           dataIndex: 'address',
           customFilterDropdown: true,
 
@@ -117,7 +117,7 @@ export default {
             { text: '중', value: '중' },
             { text: '하', value: '하' },
           ],
-          filterMultiple: false,
+          filterMultiple: true,
           onFilter: (value, record) => record.difficulty.indexOf(value) === 0,
         },
       ],
