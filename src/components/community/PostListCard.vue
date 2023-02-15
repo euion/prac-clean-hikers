@@ -2,7 +2,7 @@
   <div>
     <ul class="flex justify-center font-sans">
       <div
-        class="w-5/6 border-gray-200 rounded-[10px] border m-3 p-3 cursor-pointer hover:bg-lime-100"
+        class="w-full border-gray-200 rounded-[10px] border my-3 p-3 cursor-pointer hover:bg-lime-100"
       >
         <ul>
           <li>

@@ -3,14 +3,24 @@
     <h1 class="text-3xl font-sans font-bold py-5 text-center">
       커뮤니티를 확인해보세요
     </h1>
-
-    <post-list-card
-      v-for="postDataItem in postDataList"
-      @click="clickPost(postDataItem)"
-      :key="postDataItem.id"
-      :postDataItem="postDataItem"
-    >
-    </post-list-card>
+    <div class="flex flex-row justify-center">
+      <div class="w-3/5">
+        <a href="/"
+          ><button
+            class="bg-[#80a866] py-2 px-5 border rounded hover:bg-[#5f8d40] text-gray-100 hover:font-bold"
+          >
+            목록
+          </button></a
+        >
+        <post-list-card
+          v-for="postDataItem in postDataList"
+          @click="clickPost(postDataItem)"
+          :key="postDataItem.id"
+          :postDataItem="postDataItem"
+        >
+        </post-list-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,6 +38,7 @@ export default {
       errData: null,
       postDataList: [],
       postDataItem: [],
+      lockNumber: '',
     };
   },
 
@@ -68,6 +79,7 @@ export default {
             personnel: postDataItem.personnel,
             leaveDate: postDataItem.leaveDate,
             leaveMountain: postDataItem.leaveMountain,
+            lockNumber: postDataItem.lockNumber,
           },
         },
         console.log(postDataItem),
