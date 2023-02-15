@@ -8,7 +8,7 @@
       class="cursor-pointer rounded-[20px] w-[180px] h-[180px] hover:ease-in"
     />
     <div
-      v-if="this.isModal === true"
+      v-if="this.isModal"
       @:click="onclickImg"
       class="absolute top-0 left-0 w-[100%] h-[100%] rounded-[20px] bg-opacity-50 bg-gray-800"
     >
@@ -38,7 +38,6 @@ export default {
   methods: {
     onclickImg() {
       this.isModal = !this.isModal;
-      console.log(this.isModal);
     },
   },
 };

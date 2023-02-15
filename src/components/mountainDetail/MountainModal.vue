@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-10 text-center text-m drop-shadow-xl"
+    class="h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50 bg-black bg-opacity-10 text-center text-m drop-shadow-xl"
   >
     <div class="top-[20%] bg-white p-10 rounded-2xl">
       <div class="text-left">
@@ -18,7 +18,7 @@
       </div>
       <button
         class="bg-lime-600 text-white px-[20px] py-[10px] rounded mt-5"
-        @click="onModalControl()"
+        @click="this.$emit('onModalControl')"
       >
         닫기
       </button>
@@ -29,6 +29,6 @@
 <script>
 export default {
   name: 'mountain-modal',
-  props: ['mountainItem', 'onModalControl'],
+  props: ['mountainItem'],
 };
 </script>

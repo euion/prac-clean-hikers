@@ -6,3 +6,6 @@
     src: url('@/assets/font/Gugi-Regular.ttf') format('ttf');
   }
 }
+.ant-btn-primary {
+  border-color: red;
+}

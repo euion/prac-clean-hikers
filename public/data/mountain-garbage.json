@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "id": 0,
+      "id": "0",
       "name": "설악산",
       "trash": "50.422",
       "latitude": "38.120389",
@@ -11,7 +11,7 @@
       "image": "https://www.knps.or.kr/upload/contest/19/20201005071505136.jpg"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "가야산",
       "trash": "23.192",
       "latitude": "35.822119",
@@ -21,15 +21,17 @@
       "image": "https://www.hc.go.kr/CmsMultiFile/view.do?multifileId=MF00001906&idx=21278"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "속리산",
       "trash": "26.4835",
+      "latitude": "35.822119",
+      "longitude": "128.117935",
       "address": "충청북도 제천시",
-      "difficulty": "중",
+      "difficulty": "상",
       "image": "https://www.knps.or.kr/upload/contest/19/20201005071505136.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "주왕산",
       "trash": "26.394",
       "latitude": "36.389695",
@@ -39,7 +41,7 @@
       "image": "https://t1.daumcdn.net/cfile/tistory/2710944C58F1C57E20"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "북한산",
       "trash": "53.106",
       "latitude": "37.660934",
@@ -49,7 +51,7 @@
       "image": "https://www.yangju.go.kr/DATA/bbs/203/20160718025159104.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "태백산",
       "trash": "34.822",
       "latitude": "37.095704",
@@ -57,6 +59,56 @@
       "address": "강원도 태백시",
       "difficulty": "하",
       "image": "https://www.knps.or.kr/upload/contest/19/20201005070128857.jpg"
+    },
+    {
+      "id": "6",
+      "name": "무등산",
+      "trash": "16.144",
+      "latitude": "35.13436",
+      "longitude": "126.988595",
+      "address": "광주광역시",
+      "difficulty": "상",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/%EB%AC%B4%EB%93%B1%EC%82%B0_%EC%A3%BC%EC%83%81%EC%A0%88%EB%A6%AC%EB%8C%80.jpg"
+    },
+    {
+      "id": "7",
+      "name": "계룡산",
+      "trash": "37.504",
+      "latitude": "36.342114",
+      "longitude": "127.205563",
+      "address": "충청남도 계룡시",
+      "difficulty": "중",
+      "image": "https://www.knps.or.kr/upload/contest/20/20211018015603551.jpg"
+    },
+    {
+      "id": "8",
+      "name": "칠갑산",
+      "trash": "34.822",
+      "latitude": "37.095704",
+      "longitude": "128.915197",
+      "address": "강원도 태백시",
+      "difficulty": "하",
+      "image": "https://www.knps.or.kr/upload/contest/19/20201005070128857.jpg"
+    },
+    {
+      "id": "9",
+      "name": "내장산",
+      "trash": "30.88",
+      "latitude": "35.13436",
+      "longitude": "126.988595",
+      "address": "전라북도 순창군",
+      "difficulty": "상",
+      "image": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/516bff7e-94b8-49e0-a66e-0ccbddcaee75.jpeg"
+    },
+    {
+      "id": "10",
+      "name": "연목산",
+      "trash": "39.504",
+      "latitude": "36.342114",
+      "longitude": "127.205563",
+      "address": "충청남도 계룡시",
+      "difficulty": "중",
+      "image": "https://www.knps.or.kr/upload/contest/20/20211018015603551.jpg"
     }
   ]
 }

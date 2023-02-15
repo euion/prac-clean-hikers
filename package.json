@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
+    "@surely-vue/table": "^3.0.0",
     "@vuepic/vue-datepicker": "^3.6.7",
     "ant-design-vue": "^3.3.0-beta.4",
     "axios": "^1.3.2",
@@ -16,6 +17,7 @@
     "es6-promise": "^4.2.8",
     "prettier": "^2.8.3",
     "vue": "^3.2.45",
+    "vue-request": "^1.2.4",
     "vue-router": "^4.1.6",
     "vue3-datepicker": "^0.3.4",
     "vuex": "^4.1.0"
@@ -25,7 +27,7 @@
     "autoprefixer": "^10.4.13",
     "babel-plugin-import": "^1.13.6",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.4",
+    "tailwindcss": "^3.2.6",
     "vite": "^4.0.0"
   }
 }

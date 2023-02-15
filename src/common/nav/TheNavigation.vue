@@ -18,27 +18,6 @@
           <ul
             class="flex align-center justify-between items-center max-sm:text-xs"
           >
-            <!-- <li class="hover:text-lime-600">
-              <router-link to="/"
-                ><p class="font-sans font-bold">홈</p></router-link
-              >
-            </li>
-            <li>
-              <router-link to="/search-mountain" class="font-sans font-bold"
-                ><div>산찾기</div></router-link
-              >
-            </li>
-            <li>
-              <router-link to="/community" class="font-sans font-bold"
-                >커뮤니티</router-link
-              >
-            </li>
-            <li>
-              <router-link to="/"
-                ><img src="@/assets/icon/profile.png"
-              /></router-link>
-            </li> -->
-
             <li v-for="(nav, index) in navList" :key="index">
               <router-link :to="nav.link">
                 <p class="hover:text-lime-600 font-sans font-bold">
