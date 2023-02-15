@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <div
+    <form
       @submit.prevent="submitForm"
       class="bg-white rounded-3xl max-w-4xl flex justify-between p-3"
     >
@@ -57,7 +57,7 @@
           찾아보기
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
@@ -119,7 +119,7 @@ export default {
     },
     clickParams() {
       this.$router.push({
-        name: 'community-list',
+        name: 'community-create',
         query: {
           region: this.regionSelected,
           date: this.datePicked,

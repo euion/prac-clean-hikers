@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <h3>
     {{ routedLeaveDate }}, {{ routedRegion }}으로 여행가요! 선착순
     {{ routedPersonnel }}명
@@ -10,4 +10,4 @@ export default {
   name: 'community-detail',
   props: ['routedRegion', 'routedLeaveDate', 'routedPersonnel'],
 };
-</script>
+</script> -->

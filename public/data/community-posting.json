@@ -1,0 +1,31 @@
+{
+  "savedResources": [
+    {
+      "id": 0,
+      "title": "덕유산으로 놀러가요",
+      "personnel": 5,
+      "leaveDate": "2023-02-03",
+      "leaveMountain": "덕유산",
+      "description": "덕유산 진짜 쓰레기 많다하던데.. 청소하러갑시당",
+      "nickname": "콩콩"
+    },
+    {
+      "id": 1,
+      "title": "한라산으로 청소시급합니다!!",
+      "personnel": 2,
+      "leaveDate": "2023-02-13",
+      "leaveMountain": "한라산",
+      "description": "한라산 진짜 쓰레기 많다하던데.. 청소하러갑시당",
+      "nickname": "농담곰"
+    },
+    {
+      "id": 2,
+      "title": "오대산으로 놀러가요",
+      "personnel": 4,
+      "leaveMountain": "오대산",
+      "leaveDate": "2023-08-03",
+      "description": "오대산 깨끗한 자연을 누려봅시다",
+      "nickname": "농담고양이"
+    }
+  ]
+}

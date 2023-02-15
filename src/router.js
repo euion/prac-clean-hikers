@@ -4,6 +4,9 @@ import NotFound from '@/pages/NotFound.vue';
 import CommunityList from '@/pages/CommunityList.vue';
 import MountainDetail from '@/pages/MountainDetail.vue';
 import Main from '@/pages/Main.vue';
+import CommunityDetail from '@/pages/CommunityDetail.vue';
+import CommunityCreate from '@/pages/CommunityCreate.vue';
+import CommunityUpdate from '@/pages/CommunityUpdate.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,6 +29,27 @@ const router = createRouter({
       path: '/search-mountain',
       meta: { needsAuth: true },
       component: MountainDetail,
+      props: true,
+    },
+    {
+      name: 'community-detail',
+      path: '/community-detail/:id',
+      meta: { needsAuth: true },
+      component: CommunityDetail,
+      props: true,
+    },
+    {
+      name: 'community-create',
+      path: '/community-create',
+      meta: { needsAuth: true },
+      component: CommunityCreate,
+      props: true,
+    },
+    {
+      name: 'community-update',
+      path: '/community-update',
+      meta: { needsAuth: true },
+      component: CommunityUpdate,
       props: true,
     },
     {
