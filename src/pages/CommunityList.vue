@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>커뮤니티 페이지 입니다.</h1>
+    <h1 class="text-3xl font-sans font-bold py-5 text-center">
+      커뮤니티를 확인해보세요
+    </h1>
+
     <post-list-card
       v-for="postDataItem in postDataList"
       @click="clickPost(postDataItem)"
