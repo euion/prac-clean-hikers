@@ -5,17 +5,19 @@
     </h1>
     <div class="flex flex-row justify-center">
       <div class="w-3/5">
-        <a href="/"
+        <a href="/community-create" class="mx-2 flex justify-end"
           ><button
-            class="bg-[#80a866] py-2 px-5 border rounded hover:bg-[#5f8d40] text-gray-100 hover:font-bold"
+            class="bg-red-300 py-2 px-5 border rounded hover:bg-red-500 text-gray-100 hover:font-bold"
           >
-            목록
+            글쓰기
           </button></a
         >
         <post-list-card
           v-for="postDataItem in postDataList"
-          @click="clickPost(postDataItem)"
+          @deleteResource="removeResource"
+          @readPost="clickPost"
           :key="postDataItem.id"
+          :lockNumber="postDataItem.lockNumber"
           :postDataItem="postDataItem"
         >
         </post-list-card>
@@ -43,6 +45,35 @@ export default {
   },
 
   methods: {
+    addResource(title, description, url) {
+      const newResource = {
+        id: new Date().toISOString, // 문자열 타임스탬프 생성
+        title: title,
+        description: description,
+        link: url,
+      };
+      this.postDataList.unshift(newResource);
+    },
+    removeResource(id, lockNumber) {
+      console.log('삭제');
+      const resIndex = this.postDataList.findIndex((res) => res.id === id);
+      this.lockNumber = lockNumber;
+      console.log(lockNumber);
+      const deleteCheck = prompt(
+        '삭제하시려면 게시물 비밀번호를 입력하여 주십시오',
+      );
+      if (lockNumber == deleteCheck) {
+        if (confirm('삭제되었습니다.')) {
+          this.postDataList.splice(resIndex, 1);
+        }
+        console.log(lockNumber);
+      } else {
+        alert('틀린 비밀번호입니다.');
+        console.log(lockNumber);
+        console.log(deleteCheck);
+      }
+      console.log(this.title);
+    },
     loadCommunityPost() {
       this.isLoading = true;
       this.errData = null;
