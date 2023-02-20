@@ -10,13 +10,12 @@
       >
       <div class="border rounded float-left w-full p-10">
         <div class="flex justify-end">
-          <a href="/community-update"
-            ><button
-              class="bg-blue-300 py-2 px-5 border rounded hover:bg-blue-500 text-gray-100 mx-2 hover:font-bold"
-            >
-              수정
-            </button></a
+          <button
+            class="bg-blue-300 py-2 px-5 border rounded hover:bg-blue-500 text-gray-100 mx-2 hover:font-bold"
+            @click="updatePost"
           >
+            수정
+          </button>
         </div>
         <p class="font-bold">{{ this.nickName }}</p>
         <h1 class="text-3xl font-bold py-2">
@@ -34,7 +33,7 @@
           </li>
           <li class="flex pb-1">
             <p>출발 일자:</p>
-            <p class="font-bold">{{ this.leaveDate }}</p>
+            <p class="font-bold">{{ this.leaveDate || yyyy }}</p>
           </li>
         </ul>
         <div class="float-right"></div>
@@ -45,6 +44,7 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
 export default {
   name: 'community-detail',
   data() {
@@ -57,6 +57,28 @@ export default {
       leaveMountain: this.$route.query.leaveMountain,
       lockNumber: this.$route.query.lockNumber,
     };
+  },
+  methods: {
+    updatePost() {
+      this.$router.push(
+        {
+          name: 'community-update',
+          params: {
+            id: this.$route.params.id,
+          },
+          query: {
+            title: this.$route.query.title,
+            nickName: this.$route.query.nickName,
+            description: this.$route.query.description,
+            personnel: this.$route.query.personnel,
+            leaveDate: this.$route.query.leaveDate,
+            leaveMountain: this.$route.query.leaveMountain,
+            lockNumber: this.$route.query.lockNumber,
+          },
+        },
+        console.log(this.$route.params.id),
+      );
+    },
   },
 };
 </script>

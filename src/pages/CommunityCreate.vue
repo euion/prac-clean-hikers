@@ -6,7 +6,7 @@
   </div>
   <div class="flex justify-center">
     <div class="m-5 w-3/5">
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="submit">
         <div>
           <div class="">
             <ul class="py-2 grid grid-cols-3 gap-2">
@@ -15,11 +15,10 @@
                 <ul class="w-25 pr-2">
                   <div>
                     <datepicker
-                      v-model="this.leaveDate"
-                      :locale="locale"
-                      :value="this.leaveDate"
+                      class="h-[40px]"
+                      v-model="this.leaveDateSelected"
+                      :value="this.leaveDateSelected"
                       :weekStartsOn="0"
-                      :inputFormat="inputFormat"
                       :clearable="true"
                     />
                   </div>
@@ -32,7 +31,7 @@
                   id="region"
                   name="region"
                   v-model="regionSelected"
-                  class="border w-full"
+                  class="border w-full h-[40px]"
                 >
                   <option
                     v-if="!this.createDataList.regionSelected"
@@ -56,10 +55,10 @@
               <li>
                 모집인원을 선택하세요
                 <select
-                  id="region"
-                  name="region"
+                  id="personnel"
+                  name="personnel"
                   v-model="personnelSelected"
-                  class="border w-full"
+                  class="border w-full h-[40px]"
                 >
                   <option
                     v-if="!this.createDataList.personnelSelected"
@@ -85,8 +84,24 @@
             <input
               class="border rounded border-gray-300 p-2 w-full"
               name="title"
-              ref="titleInput"
+              ref="nickNameInput"
+              placeholder="닉네임"
             />
+
+            <input
+              class="border rounded border-gray-300 p-2 w-full"
+              name="passwordNumber"
+              type="password"
+              ref="passwordNumber"
+              placeholder="비밀번호"
+            />
+            <input
+              class="border rounded border-gray-300 p-2 w-full"
+              name="title"
+              ref="titleInput"
+              placeholder="제목"
+            />
+
             <textarea
               rows="20"
               class="border rounded border-gray-300 p-2 w-full my-2"
@@ -95,16 +110,13 @@
             ></textarea>
           </div>
         </div>
-        <div class="flex justify-between">
-          <a href="/community-create"
-            ><button
-              class="bg-red-300 py-2 px-5 border rounded hover:bg-red-500 text-gray-100 hover:font-bold"
-              @click="clickSubmitPost"
-            >
-              글쓰기
-            </button></a
-          >
-        </div>
+
+        <button
+          class="bg-red-300 py-2 px-5 border rounded hover:bg-red-500 text-gray-100 hover:font-bold"
+          @click="addResource"
+        >
+          글쓰기
+        </button>
       </form>
     </div>
   </div>
@@ -113,15 +125,11 @@
 <script>
 import { reactive, ref } from 'vue';
 import { ko } from 'date-fns/locale';
-
 import dayjs from 'dayjs';
-import Datepicker from 'vue3-datepicker';
-import { parseISO } from 'date-fns';
 
 export default {
   name: 'community-create',
-  components: { Datepicker },
-
+  emits: ['addResource'],
   data() {
     return {
       regions: [
@@ -138,8 +146,7 @@ export default {
         { text: '월악산', value: '월악산' },
       ],
       regionSelected: this.$route.query.region,
-      leaveDate: new Date(this.$route.query.ISOdate),
-      dateSelected: parseISO(this.$route.query.datePicked),
+      leaveDateSelected: new Date(this.$route.query.ISOdate),
       createDataList: [
         {
           regionSelected: this.$route.query.region,
@@ -149,7 +156,6 @@ export default {
           descriptionValue: '',
         },
       ],
-
       personnels: [
         { text: '1 명', value: 1 },
         { text: '2 명', value: 2 },
@@ -164,15 +170,55 @@ export default {
     };
   },
   methods: {
+    addResource() {
+      const title = this.$refs.titleInput.value;
+      const description = this.$refs.descriptionInput.value;
+      const nickname = this.$refs.nickNameInput.value;
+      const lockNumber = this.$refs.passwordNumber.value;
+
+      this.isAddPost = true;
+      this.$router.push({
+        name: 'community-detail',
+        params: {
+          id: new Date().toISOString,
+        },
+        query: {
+          title: title,
+          description: description,
+          nickname: nickname,
+          lockNumber: lockNumber,
+          personnel: this.personnelSelected,
+          leaveDate: this.leaveDateSelected,
+          leaveMountain: this.regionSelected,
+        },
+      });
+    },
     clickSubmitPost() {
-      const enteredTitle = this.$refs.titleInput.value;
-      const enteredDescription = this.$refs.descriptionInput;
-      const personnelSelected = this.$refs.titleValue;
-      console.log(this.createDataList.dateSelected);
-      this.addResource(enteredTitle, enteredDescription, personnelSelected);
+      const title = this.$refs.titleInput.value;
+      const description = this.$refs.descriptionInput.value;
+      const nickname = this.$refs.nickNameInput.value;
+      const lockNumber = this.$refs.passwordNumber.value;
+      const leaveDate = this.$refs.leaveDate;
+      if (
+        title.trim() === '' ||
+        description.trim() === '' ||
+        nickname.trim() === '' ||
+        lockNumber.trim() === ''
+      ) {
+        this.inputIsInvalid = true;
+        return;
+      }
+      this.$emit('addResource', {
+        title,
+        description,
+        nickname,
+        leaveDate,
+        lockNumber,
+      });
+
+      console.log('title', title);
     },
   },
-
   setup() {
     let datePicked = ref(new Date());
     let locale = reactive(ko);
@@ -183,7 +229,5 @@ export default {
       inputFormat,
     };
   },
-
-  methods: {},
 };
 </script>

@@ -19,20 +19,7 @@ export default {
     TheNavigation,
     // Main,
   },
-  data() {
-    return {
-      isLoading: false,
-      errData: null,
-      postDataList: [],
-      postDataItem: [],
-      lockNumber: '',
-    };
-  },
-  provide() {
-    return {
-      addResource: this.addResource,
-    };
-  },
+
   methods: {
     addResource(title, description, url) {
       // createEventBus.$emit('addResource');

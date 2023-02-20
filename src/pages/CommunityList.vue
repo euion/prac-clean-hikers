@@ -12,6 +12,10 @@
             글쓰기
           </button></a
         >
+        <community-create
+          v-if="this.isAddPost"
+          @addResource="addResource"
+        ></community-create>
         <post-list-card
           v-for="postDataItem in postDataList"
           @deleteResource="removeResource"
@@ -29,10 +33,11 @@
 <script>
 import CommunityCreate from '@/pages/CommunityCreate.vue';
 import PostListCard from '@/components/community/PostListCard.vue';
+import CommunityDetail from '@/pages/CommunityDetail.vue';
 
 export default {
   name: 'community-list',
-  components: { CommunityCreate, PostListCard },
+  components: { CommunityCreate, PostListCard, CommunityDetail },
 
   data() {
     return {
@@ -40,11 +45,26 @@ export default {
       errData: null,
       postDataList: [],
       postDataItem: [],
+      isAddPost: false,
       lockNumber: '',
     };
   },
-
+  created() {
+    console.log(this.postDataList);
+  },
   methods: {
+    addResource(title, description, nickname, leaveDate, lockNumber) {
+      this.isAddPost = true;
+      const newResource = {
+        id: new Date().toISOString, // 문자열 타임스탬프 생성
+        title: title,
+        description: description,
+        nickname: nickname,
+        leaveDate: leaveDate,
+        lockNumber: lockNumber,
+      };
+      this.postDataList.unshift(newResource);
+    },
     removeResource(id, lockNumber) {
       console.log('삭제');
       const resIndex = this.postDataList.findIndex((res) => res.id === id);

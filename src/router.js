@@ -47,7 +47,7 @@ const router = createRouter({
     },
     {
       name: 'community-update',
-      path: '/community-update',
+      path: '/community-update/:id',
       meta: { needsAuth: true },
       component: CommunityUpdate,
       props: true,
