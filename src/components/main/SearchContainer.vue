@@ -52,7 +52,7 @@
       <div>
         <button
           class="bg-blue-700 py-3 px-6 text-white rounded-2xl w-25 ml-2"
-          @click="clickParams"
+          @click="clickButton"
         >
           찾아보기
         </button>
@@ -65,8 +65,11 @@
 import { ref } from 'vue';
 import Datepicker from 'vue3-datepicker';
 import { ko } from 'date-fns/locale';
+import { parseISO } from 'date-fns';
+import dayjs from 'dayjs';
 
 export default {
+  name: 'search-container',
   props: ['mountainValue'],
   emits: ['update:mountainValue'],
 
@@ -117,12 +120,14 @@ export default {
       this.regionSelected = region;
       this.personnelSelected = personnel;
     },
-    clickParams() {
+    clickButton() {
+      console.log(String(this.datePicked));
       this.$router.push({
         name: 'community-create',
         query: {
           region: this.regionSelected,
           date: this.datePicked,
+          ISOdate: String(this.datePicked),
           personnel: this.personnelSelected,
         },
       });

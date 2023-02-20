@@ -11,7 +11,7 @@
             </p>
           </div>
         </div>
-        <search-contianer />
+        <search-container />
       </div>
       <main-footer />
     </div>

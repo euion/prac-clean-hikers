@@ -45,15 +45,6 @@ export default {
   },
 
   methods: {
-    addResource(title, description, url) {
-      const newResource = {
-        id: new Date().toISOString, // 문자열 타임스탬프 생성
-        title: title,
-        description: description,
-        link: url,
-      };
-      this.postDataList.unshift(newResource);
-    },
     removeResource(id, lockNumber) {
       console.log('삭제');
       const resIndex = this.postDataList.findIndex((res) => res.id === id);
