@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-sans font-bold py-9 text-center">
       커뮤니티를 확인해보세요
     </h1>
-    <div class="flex flex-row justify-center">
+    <div class="flex flex-row justify-center max-sm:text-xs">
       <div class="w-3/5">
         <a href="/community-create" class="mx-2 flex justify-end"
           ><button
