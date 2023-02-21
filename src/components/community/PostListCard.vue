@@ -17,7 +17,7 @@
         <li class="flex">
           <p>출발일자 : {{ postDataItem.leaveDate }}</p>
         </li>
-        <p class="font-bold">{{ postDataItem.nikename }}</p>
+        <p class="font-bold">{{ postDataItem.nickname }}</p>
         <div class="flex justify-end">
           <button
             @click="this.$emit('readPost', postDataItem)"
