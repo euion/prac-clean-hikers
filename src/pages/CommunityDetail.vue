@@ -47,12 +47,22 @@
         </div>
       </div>
     </div>
+    <div class="p-10 font-sans py-10 flex justify-center">
+      <div class="w-3/5">
+        <comment />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Comment from '@/components/community/Comment.vue';
+
 export default {
   name: 'community-detail',
+  components: {
+    Comment,
+  },
   data() {
     return {
       title: this.$route.query.title,
