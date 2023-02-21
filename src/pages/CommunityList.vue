@@ -66,7 +66,6 @@ export default {
       console.log('삭제');
       const resIndex = this.postDataList.findIndex((res) => res.id === id);
       this.lockNumber = lockNumber;
-      console.log(lockNumber);
       const deleteCheck = prompt(
         '삭제하시려면 게시물 비밀번호를 입력하여 주십시오',
       );
@@ -104,24 +103,21 @@ export default {
     },
     clickPost(postDataItem) {
       this.postDataItem = postDataItem;
-      this.$router.push(
-        {
-          name: 'community-detail',
-          params: {
-            id: postDataItem.id,
-          },
-          query: {
-            title: postDataItem.title,
-            nickName: postDataItem.nickname,
-            description: postDataItem.description,
-            personnel: postDataItem.personnel,
-            leaveDate: postDataItem.leaveDate,
-            leaveMountain: postDataItem.leaveMountain,
-            lockNumber: postDataItem.lockNumber,
-          },
+      this.$router.push({
+        name: 'community-detail',
+        params: {
+          id: postDataItem.id,
         },
-        console.log(postDataItem),
-      );
+        query: {
+          title: postDataItem.title,
+          nickName: postDataItem.nickname,
+          description: postDataItem.description,
+          personnel: postDataItem.personnel,
+          leaveDate: postDataItem.leaveDate,
+          leaveMountain: postDataItem.leaveMountain,
+          lockNumber: postDataItem.lockNumber,
+        },
+      });
     },
   },
   mounted() {
