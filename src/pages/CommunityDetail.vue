@@ -36,7 +36,7 @@
               </li>
               <li class="flex pb-1">
                 <p>출발 일자:</p>
-                <p class="font-bold">{{ this.leaveDate || yyyy }}</p>
+                <p class="font-bold">{{ this.leaveDate }}</p>
               </li>
             </ul>
           </div>
@@ -57,6 +57,7 @@
 
 <script>
 import Comment from '@/components/community/Comment.vue';
+import dayjs from 'dayjs';
 
 export default {
   name: 'community-detail',
@@ -69,7 +70,7 @@ export default {
       nickName: this.$route.query.nickName,
       description: this.$route.query.description,
       personnel: this.$route.query.personnel,
-      leaveDate: this.$route.query.leaveDate,
+      leaveDate: dayjs(this.$route.query.leaveDate).format('YYYY-MM-DD'),
       leaveMountain: this.$route.query.leaveMountain,
       lockNumber: this.$route.query.lockNumber,
     };

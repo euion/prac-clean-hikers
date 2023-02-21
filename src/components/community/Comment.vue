@@ -20,9 +20,6 @@
       </template>
     </a-list>
     <a-comment>
-      <template #avatar>
-        <a-avatar src="@/assets/icon/profile.png" alt="Han Solo" />
-      </template>
       <template #content>
         <a-form-item>
           <a-textarea v-model:value="value" :rows="4" />
