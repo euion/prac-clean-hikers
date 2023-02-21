@@ -66,7 +66,7 @@
           <div>
             <input
               class="border rounded border-gray-300 p-2 w-full"
-              name="title"
+              name="nickname"
               :value="this.nickName"
               ref="nickNameInput"
               placeholder="닉네임"
@@ -100,7 +100,7 @@
 
         <button
           class="bg-red-300 py-2 px-5 border rounded hover:bg-red-500 text-gray-100 hover:font-bold"
-          @click="clickSubmitPost"
+          @click="addResource"
         >
           글쓰기
         </button>
@@ -145,6 +145,31 @@ export default {
       leaveMountain: this.$route.query.leaveMountain,
       lockNumber: this.$route.query.lockNumber,
     };
+  },
+  methods: {
+    addResource() {
+      const title = this.$refs.titleInput.value;
+      const description = this.$refs.descriptionInput.value;
+      const nickname = this.$refs.nickNameInput.value;
+      const lockNumber = this.$refs.passwordNumber.value;
+
+      this.isAddPost = true;
+      this.$router.push({
+        name: 'community-detail',
+        params: {
+          id: new Date().toISOString,
+        },
+        query: {
+          title: title,
+          description: description,
+          nickname: nickname,
+          lockNumber: lockNumber,
+          personnel: this.personnel,
+          leaveDate: this.leaveDate,
+          leaveMountain: this.leaveMountain,
+        },
+      });
+    },
   },
 };
 </script>

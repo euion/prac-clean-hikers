@@ -193,31 +193,6 @@ export default {
         },
       });
     },
-    clickSubmitPost() {
-      const title = this.$refs.titleInput.value;
-      const description = this.$refs.descriptionInput.value;
-      const nickname = this.$refs.nickNameInput.value;
-      const lockNumber = this.$refs.passwordNumber.value;
-      const leaveDate = this.$refs.leaveDate;
-      if (
-        title.trim() === '' ||
-        description.trim() === '' ||
-        nickname.trim() === '' ||
-        lockNumber.trim() === ''
-      ) {
-        this.inputIsInvalid = true;
-        return;
-      }
-      this.$emit('addResource', {
-        title,
-        description,
-        nickname,
-        leaveDate,
-        lockNumber,
-      });
-
-      console.log('title', title);
-    },
   },
   setup() {
     let datePicked = ref(new Date());
