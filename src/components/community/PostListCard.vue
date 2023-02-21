@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="flex justify-center font-sans">
-      <div class="w-full border-gray-200 rounded-[10px] border my-3 p-3">
+      <div class="w-full border-gray-200 rounded-[10px] border my-2 p-3">
         <ul>
           <li>
             <h1 class="font-bold flex justify-between">
@@ -21,7 +21,7 @@
         <div class="flex justify-end">
           <button
             @click="this.$emit('readPost', postDataItem)"
-            class="text-green-600 p-1 border rounded hover:bg-[#9acf77] hover:text-gray-100 cursor-pointer"
+            class="text-green-600 p-1 font-sans border rounded hover:bg-[#9acf77] hover:text-gray-100 cursor-pointer"
           >
             <team-outlined />포스팅으로 이동
           </button>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl font-sans font-bold py-5 text-center">
+    <h1 class="text-3xl font-sans font-bold py-9 text-center">
       커뮤니티를 확인해보세요
     </h1>
   </div>
@@ -11,7 +11,7 @@
           <div class="">
             <ul class="py-2 grid grid-cols-3 gap-2">
               <li>
-                출발일자를 선택하세요
+                <!-- 출발일자를 선택하세요 -->
                 <ul class="w-25 pr-2">
                   <div>
                     <datepicker
@@ -26,7 +26,7 @@
                 </ul>
               </li>
               <li>
-                목적지를 선택하세요
+                <!-- 목적지를 선택하세요 -->
                 <select
                   id="region"
                   name="region"
@@ -50,10 +50,11 @@
                     <p>{{ region.text }}</p>
                   </option>
                 </select>
+                <p class="text-xs text-gray-400">Your destination</p>
               </li>
 
               <li>
-                모집인원을 선택하세요
+                <!-- 모집인원을 선택하세요 -->
                 <select
                   id="personnel"
                   name="personnel"
@@ -77,24 +78,28 @@
                     <p>{{ personnel.text }}</p>
                   </option>
                 </select>
+                <p class="text-xs text-gray-400">How many people?</p>
               </li>
             </ul>
           </div>
           <div>
-            <input
-              class="border rounded border-gray-300 p-2 w-full"
-              name="title"
-              ref="nickNameInput"
-              placeholder="닉네임"
-            />
+            <div class="flex justify-between">
+              <input
+                class="border rounded border-gray-300 p-2 w-full mr-1 mb-2"
+                name="title"
+                ref="nickNameInput"
+                placeholder="닉네임"
+              />
 
-            <input
-              class="border rounded border-gray-300 p-2 w-full"
-              name="passwordNumber"
-              type="password"
-              ref="passwordNumber"
-              placeholder="비밀번호"
-            />
+              <input
+                class="border rounded border-gray-300 p-2 w-full ml-1 mb-2"
+                name="passwordNumber"
+                type="password"
+                ref="passwordNumber"
+                placeholder="비밀번호"
+              />
+            </div>
+
             <input
               class="border rounded border-gray-300 p-2 w-full"
               name="title"
@@ -110,13 +115,14 @@
             ></textarea>
           </div>
         </div>
-
-        <button
-          class="bg-red-300 py-2 px-5 border rounded hover:bg-red-500 text-gray-100 hover:font-bold"
-          @click="addResource"
-        >
-          글쓰기
-        </button>
+        <div class="flex justify-end">
+          <button
+            class="bg-red-300 py-2 px-5 border rounded hover:bg-red-500 text-gray-100 hover:font-bold my-5"
+            @click="addResource"
+          >
+            글쓰기
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -125,7 +131,6 @@
 <script>
 import { reactive, ref } from 'vue';
 import { ko } from 'date-fns/locale';
-import dayjs from 'dayjs';
 
 export default {
   name: 'community-create',
@@ -171,11 +176,6 @@ export default {
   },
   methods: {
     addResource() {
-      const title = this.$refs.titleInput.value;
-      const description = this.$refs.descriptionInput.value;
-      const nickname = this.$refs.nickNameInput.value;
-      const lockNumber = this.$refs.passwordNumber.value;
-
       this.isAddPost = true;
       this.$router.push({
         name: 'community-detail',
@@ -183,10 +183,10 @@ export default {
           id: new Date().toISOString,
         },
         query: {
-          title: title,
-          description: description,
-          nickname: nickname,
-          lockNumber: lockNumber,
+          title: this.$refs.titleInput.value,
+          description: this.$refs.descriptionInput.value,
+          nickName: this.$refs.nickNameInput.value,
+          lockNumber: this.$refs.passwordNumber.value,
           personnel: this.personnelSelected,
           leaveDate: this.leaveDateSelected,
           leaveMountain: this.regionSelected,

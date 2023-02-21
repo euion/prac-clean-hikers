@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl font-sans font-bold py-5 text-center">
+    <h1 class="text-3xl font-sans font-bold py-9 text-center">
       커뮤니티를 확인해보세요
     </h1>
     <div class="flex flex-row justify-center">
@@ -48,9 +48,6 @@ export default {
       isAddPost: false,
       lockNumber: '',
     };
-  },
-  created() {
-    console.log(this.postDataList);
   },
   methods: {
     addResource(title, description, nickname, leaveDate, lockNumber) {
@@ -107,7 +104,6 @@ export default {
     },
     clickPost(postDataItem) {
       this.postDataItem = postDataItem;
-      console.log(this.postDataItem);
       this.$router.push(
         {
           name: 'community-detail',

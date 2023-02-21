@@ -121,7 +121,6 @@ export default {
       this.personnelSelected = personnel;
     },
     clickButton() {
-      console.log(String(this.datePicked));
       this.$router.push({
         name: 'community-create',
         query: {

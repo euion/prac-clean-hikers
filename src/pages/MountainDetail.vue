@@ -23,7 +23,7 @@
           산에 관한 데이터를 클릭해보세요.
         </h1>
         <div class="flex justify-center">
-          <div class="w-4/6">
+          <div class="w-3/5">
             <mountain-table :mountainList="mountainList" />
           </div>
         </div>
