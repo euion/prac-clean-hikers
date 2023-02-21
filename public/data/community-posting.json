@@ -7,7 +7,7 @@
       "leaveDate": "2023-02-03",
       "leaveMountain": "덕유산",
       "description": "덕유산에 진짜 쓰레기 많다하던데.. 청소하러갑시당",
-      "nickname": "콩콩",
+      "nikename": "콩콩",
       "lockNumber": "1234"
     },
     {
@@ -17,7 +17,7 @@
       "leaveDate": "2023-02-13",
       "leaveMountain": "한라산",
       "description": "한라산에 진짜 쓰레기 많다하던데.. 청소하러갑시당",
-      "nickname": "농담곰",
+      "nikename": "농담곰",
       "lockNumber": "0001"
     },
     {
@@ -27,7 +27,7 @@
       "leaveMountain": "오대산",
       "leaveDate": "2023-08-03",
       "description": "오대산의 깨끗한 자연을 누려봅시다. 청정공기 최고!!",
-      "nickname": "농담고양이",
+      "nikename": "농담고양이",
       "lockNumber": "0002"
     },
     {
@@ -37,7 +37,7 @@
       "leaveDate": "2023-02-13",
       "leaveMountain": "오대산",
       "description": "저번에 갔을때보다는 깨끗해진 오대산.. 하지만 청소해야 합니다. 오대산이 관광객이 많아서 진짜 쓰레기 많다하던데.. 청소하러갑시당",
-      "nickname": "농담곰",
+      "nikename": "농담곰",
       "lockNumber": "0011"
     },
     {
@@ -47,7 +47,7 @@
       "leaveMountain": "연목산",
       "leaveDate": "2023-08-03",
       "description": "연목산의 깨끗한 자연을 누려봅시다. 청정공기 최고!!",
-      "nickname": "농담강아지",
+      "nikename": "농담강아지",
       "lockNumber": "0023"
     }
   ]

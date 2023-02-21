@@ -20,7 +20,7 @@
 
         <div class="border rounded float-left w-full p-10 h-full flex flex-col">
           <div>
-            <p class="font-bold">{{ this.nickName }}</p>
+            <p class="font-bold">{{ this.nikename }}</p>
             <h1 class="text-3xl font-bold py-2">
               {{ this.title }}
             </h1>
@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       title: this.$route.query.title,
-      nickName: this.$route.query.nickName,
+      nikename: this.$route.query.nikename,
       description: this.$route.query.description,
       personnel: this.$route.query.personnel,
       leaveDate: dayjs(this.$route.query.leaveDate).format('YYYY-MM-DD'),
@@ -84,7 +84,7 @@ export default {
         },
         query: {
           title: this.title,
-          nickName: this.nickName,
+          nikename: this.nikename,
           description: this.description,
           personnel: this.personnel,
           leaveDate: this.leaveDate,

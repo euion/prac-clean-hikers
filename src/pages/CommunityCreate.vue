@@ -87,7 +87,7 @@
               <input
                 class="border rounded border-gray-300 p-2 w-full mr-1 mb-2"
                 name="title"
-                ref="nickNameInput"
+                ref="nikenameInput"
                 placeholder="닉네임"
               />
 
@@ -185,7 +185,7 @@ export default {
         query: {
           title: this.$refs.titleInput.value,
           description: this.$refs.descriptionInput.value,
-          nickName: this.$refs.nickNameInput.value,
+          nikename: this.$refs.nikenameInput.value,
           lockNumber: this.$refs.passwordNumber.value,
           personnel: this.personnelSelected,
           leaveDate: this.leaveDateSelected,

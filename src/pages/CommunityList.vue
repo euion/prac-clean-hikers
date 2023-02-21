@@ -50,13 +50,13 @@ export default {
     };
   },
   methods: {
-    addResource(title, description, nickname, leaveDate, lockNumber) {
+    addResource(title, description, nikename, leaveDate, lockNumber) {
       this.isAddPost = true;
       const newResource = {
         id: new Date().toISOString, // 문자열 타임스탬프 생성
         title: title,
         description: description,
-        nickname: nickname,
+        nikename: nikename,
         leaveDate: leaveDate,
         lockNumber: lockNumber,
       };
@@ -110,7 +110,7 @@ export default {
         },
         query: {
           title: postDataItem.title,
-          nickName: postDataItem.nickname,
+          nikename: postDataItem.nikename,
           description: postDataItem.description,
           personnel: postDataItem.personnel,
           leaveDate: postDataItem.leaveDate,

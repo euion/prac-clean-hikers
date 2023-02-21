@@ -69,8 +69,8 @@
                 <input
                   class="border rounded border-gray-300 p-2 w-full mr-1 mb-2"
                   name="title"
-                  :value="this.nickName"
-                  ref="nickNameInput"
+                  :value="this.nikename"
+                  ref="nikenameInput"
                   placeholder="닉네임"
                 />
 
@@ -142,7 +142,7 @@ export default {
         { text: '8 명', value: 8 },
       ],
       title: this.$route.query.title,
-      nickName: this.$route.query.nickName,
+      nikename: this.$route.query.nikename,
       description: this.$route.query.description,
       personnel: this.$route.query.personnel,
       leaveDate: this.$route.query.leaveDate,
@@ -161,7 +161,7 @@ export default {
         query: {
           title: this.$refs.titleInput.value,
           description: this.$refs.descriptionInput.value,
-          nickName: this.$refs.nickNameInput.value,
+          nikename: this.$refs.nikenameInput.value,
           lockNumber: this.$refs.passwordNumber.value,
           personnel: this.personnel,
           leaveDate: this.leaveDate,
