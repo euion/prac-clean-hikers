@@ -69,6 +69,7 @@
                 <input
                   class="border rounded border-gray-300 p-2 w-full mr-1 mb-2"
                   name="title"
+                  :value="this.nickName"
                   ref="nickNameInput"
                   placeholder="닉네임"
                 />
@@ -76,6 +77,7 @@
                 <input
                   class="border rounded border-gray-300 p-2 w-full ml-1 mb-2"
                   name="passwordNumber"
+                  :value="this.lockNumber"
                   type="password"
                   ref="passwordNumber"
                   placeholder="비밀번호"
